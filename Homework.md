@@ -46,3 +46,24 @@ int CalcAkkerman(int m, int n)
     }
 } 
 Console.WriteLine(CalcAkkerman(3, 2)); //29
+
+
+
+Задача 3: Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы.
+void PrintReverseNumbers(int[] array, int low, int high)
+{
+    // low индекс первого элемента массива
+    // high индекс последнего элемента массива
+    if (low < high)
+    {
+        int temp = array[low];
+        array[low] = array[high];
+        array[high] = temp;
+        PrintReverseNumbers(array, low + 1, high - 1);
+    }
+}
+int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+int size = array.Length;
+PrintReverseNumbers(array, 0, size - 1);
+int[] result = array;
+Console.WriteLine($"Результат: [ {string.Join(", ", result)} ]");
